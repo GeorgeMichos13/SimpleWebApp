@@ -9,4 +9,21 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+  
+  <servlet>
+    <description></description>
+    <display-name>DisplayUsersServlet</display-name>
+    <servlet-name>DisplayUsersServlet</servlet-name>
+    <servlet-class>com.webapp.DisplayUsersServlet</servlet-class>
+    
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayUsersServlet</servlet-name>
+    <url-pattern>/DisplayUsers</url-pattern>
+  </servlet-mapping>
+
+  
+  
+  
 </web-app>

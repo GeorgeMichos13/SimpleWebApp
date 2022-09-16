@@ -1,4 +1,6 @@
-package com.webapp;
+package com.webapp.user;
+
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +13,7 @@ import com.sun.istack.NotNull;
 @Entity
 //Declaring the table
 @Table (name = "users")
-public class user {
+public class User {
 	
 	//Primary key declaration
 		@Id

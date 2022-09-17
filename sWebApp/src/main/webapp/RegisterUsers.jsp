@@ -4,9 +4,47 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Register</title>
 </head>
 <body>
+<h1>Register Form</h1>
+
+<form action="register" method="post">
+
+			
+					
+  					
+					
+			<table style="with: 50%">
+				<tr>
+					<td>Name</td>
+					<td><input type="text" name="name" required="required" /></td>
+				</tr>
+				<tr>
+					<td>Surname</td>
+					<td><input type="text" name="surname" required="required" /></td>
+				</tr>
+				<tr><td><label for="gender">Gender:</label></td>
+					<td><select name="gender" id="gender" required>
+					<option disabled selected value=> -- select gender -- </option>
+  					<option value="M">M</option>
+  					<option value="F">F</option>
+					</select></td></tr>
+				<tr>
+					<td><label for="start">Birth date:</label></td>
+					<td><input type="date" id="start" name="dob"
+     					 value="2022-07-22"
+       					 min="1970-01-01" max="2004-12-31"></td>
+       			</tr>
+       			<tr>
+					<td>Work Address</td>
+					<td><input type="text" name="workAddress" /></td>
+				</tr>
+				<tr>
+					<td>Home Address</td>
+					<td><input type="text" name="homeAddress" /></td>
+				</tr></table>
+			<input type="submit" value="Submit" /></form>
 
 </body>
 </html>

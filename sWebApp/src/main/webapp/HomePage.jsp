@@ -9,6 +9,6 @@
 <body>
 <h1>Home Page</h1>
 	<p><a href="DisplayUsers">Display Users</a></p>
-    <p><a href="RegisterUsers">Register Users</a></p>
+    <p><a href="RegisterUsers.jsp">Register Users</a></p>
 </body>
 </html>

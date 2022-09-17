@@ -3,6 +3,7 @@ package com.webapp;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.webapp.UserDAO.UserDAO;
 import com.webapp.user.User;
 
 import jakarta.servlet.RequestDispatcher;
@@ -25,14 +26,10 @@ public class DisplayUsersServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		
 		UserDAO userdao = new UserDAO();
-		String res = userdao.getUserData();
 		
-		ArrayList<User> users = userdao.getUsers();
+	
+		session.setAttribute("data", userdao.getUserData());
 		
-		System.out.println(users.size());
-		
-		
-		session.setAttribute("data", users);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("DisplayUsers.jsp");
     	rd.forward(req, resp);

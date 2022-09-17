@@ -20,26 +20,26 @@ public class AddData {
         Session session = sf.openSession();
         //ACID protocols
         Transaction tx = session.beginTransaction();
-        
+      
         User user = new User();
         user.setName("George");
-        user.setSurName("Michos");
+        user.setSurname("Michos");
         user.setDob("25/2/2022");
-        user.setGender('M');
+        user.setGender("M");
         session.save(user);
         
         user = new User();
         user.setName("Themos");
-        user.setSurName("Raptis");
+        user.setSurname("Raptis");
         user.setDob("17/12/1998");
-        user.setGender('M');
+        user.setGender("M");
         session.save(user);
         
         user = new User();
         user.setName("Pavlos");
-        user.setSurName("Maniotis");
+        user.setSurname("Maniotis");
         user.setDob("15/7/1994");
-        user.setGender('M');
+        user.setGender("M");
         session.save(user);
         
 	   //ACID Protocols

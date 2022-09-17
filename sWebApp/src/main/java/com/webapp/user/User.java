@@ -27,11 +27,11 @@ public class User {
 		
 		@NotNull
 		@Column (name = "surname")
-		private String surName;
+		private String surname;
 		
 		@NotNull
 		@Column(name = "gender")
-		private char gender;
+		private String gender;
 		
 		@NotNull
 		@Column(name = "dob")
@@ -50,23 +50,23 @@ public class User {
 			this.name = name;
 		}
 		
-		public String getSurName() {
-			return surName;
+		public String getSurname() {
+			return surname;
 		}
 		
-		public void setSurName(String surName) {
-			this.surName = surName;
+		public void setSurname(String surName) {
+			this.surname = surName;
 		}
 		
 		public void setId(int id) {
 			this.id = id;
 		}
 		
-		public char getGender() {
+		public String getGender() {
 			return gender;
 		}
 		
-		public void setGender(char gender) {
+		public void setGender(String gender) {
 			this.gender = gender;
 		}
 		
@@ -80,7 +80,7 @@ public class User {
 		
 		
 		public String toString() {
-			return "Users [name=" + name + ", surName=" + surName + ", gender=" + gender + ", dob=" + dob + "]";
+			return "Users [name=" + name + ", surName=" + surname + ", gender=" + gender + ", dob=" + dob + "]";
 		}
 
 }

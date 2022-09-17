@@ -3,27 +3,31 @@
   <display-name>sWebApp</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>HomePage.jsp</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  
-  
   <servlet>
     <description></description>
     <display-name>DisplayUsersServlet</display-name>
     <servlet-name>DisplayUsersServlet</servlet-name>
     <servlet-class>com.webapp.DisplayUsersServlet</servlet-class>
-    
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>DisplayUsersServlet</servlet-name>
     <url-pattern>/DisplayUsers</url-pattern>
   </servlet-mapping>
-
-  
-  
-  
+  <servlet>
+    <description></description>
+    <display-name>RegisterUserSerlvet</display-name>
+    <servlet-name>RegisterUserSerlvet</servlet-name>
+    <servlet-class>com.webapp.RegisterUserSerlvet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterUserSerlvet</servlet-name>
+    <url-pattern>/RegisterUserSerlvet</url-pattern>
+  </servlet-mapping>
 </web-app>

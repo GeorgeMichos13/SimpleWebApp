@@ -17,7 +17,7 @@
 			<% 
 				  
     			String attr = request.getParameter("id");
-    			int id = Integer.parseInt(attr) - 1;
+    			int id = Integer.parseInt(attr);
     			UserDAO ud = new UserDAO();
     			User user = ud.getUser(id);
     					

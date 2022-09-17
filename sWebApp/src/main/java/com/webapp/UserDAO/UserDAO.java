@@ -1,7 +1,6 @@
 package com.webapp.UserDAO;
 
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import org.hibernate.Session;
@@ -9,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import com.mysql.cj.Query;
 import com.webapp.user.User;
 
 public class UserDAO {
@@ -45,10 +45,11 @@ public class UserDAO {
 		
 		Session session = this.config().openSession();
 		Transaction tx = session.beginTransaction();
+		System.out.println(id);
 		
+		users = new ArrayList<User>(session.createQuery("from User where id=:id",User.class).setParameter("id", id).getResultList());
 		
-		users = new ArrayList<User>(session.createQuery("from User",User.class).getResultList());
-		User user = users.get(id);
+		User user = users.get(0);
 		
 		tx.commit();
 		session.close();

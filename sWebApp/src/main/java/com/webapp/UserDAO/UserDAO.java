@@ -10,17 +10,20 @@ import org.hibernate.cfg.Configuration;
 
 import com.webapp.homeadd.HomeAddress;
 import com.webapp.user.User;
+import com.webapp.workadd.WorkAddress;
 
 public class UserDAO {
 	
 	public ArrayList<User> users = new ArrayList<>();
 	public ArrayList<HomeAddress> homeAdd = new ArrayList<>();
+	public ArrayList<WorkAddress> workAdd = new ArrayList<>();
 	public String retrResult = "not";
 	
 	
 	public SessionFactory config()
 	{
-		Configuration con = new Configuration().configure().addAnnotatedClass(User.class).addAnnotatedClass(HomeAddress.class);
+		Configuration con = new Configuration().configure().addAnnotatedClass(User.class)
+				.addAnnotatedClass(HomeAddress.class).addAnnotatedClass(WorkAddress.class);
 		SessionFactory sf = con.buildSessionFactory();
 		
 		return sf;
@@ -81,6 +84,24 @@ public class UserDAO {
 		return home;
 	}
 	
+public WorkAddress getWorkAddress(int id) {
+		
+		Session session = this.config().openSession();
+		Transaction tx = session.beginTransaction();
+		
+		workAdd = new ArrayList<WorkAddress>(session.createQuery("from WorkAddress where iduserwork = : id",WorkAddress.class).setParameter("id", id).getResultList());
+		WorkAddress work =workAdd.get(0);
+		
+		System.out.println(work.getWorkAdd());
+		if(work.getWorkAdd() == null)
+			work.setWorkAdd("N/A");
+		
+		
+		tx.commit();
+		session.close();
+		
+		return work;
+	}
 	
 	
 	public ArrayList<HomeAddress> getHomeAddress(){

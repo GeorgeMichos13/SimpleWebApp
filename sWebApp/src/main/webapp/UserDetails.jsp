@@ -18,9 +18,9 @@
 
 			<%
 							
-			    			User user = (User)request.getAttribute("user");
-			    			HomeAddress homeadd =(HomeAddress)request.getAttribute("home");
-			    			WorkAddress workadd = (WorkAddress)request.getAttribute("work");
+			    			User user = (User)session.getAttribute("user");
+			    			HomeAddress homeadd =(HomeAddress)session.getAttribute("home");
+			    			WorkAddress workadd = (WorkAddress)session.getAttribute("work");
 			%>
     
    

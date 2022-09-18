@@ -32,9 +32,9 @@ public class UserDetailsServlet extends HttpServlet {
 		HomeAddress home = userdao.getHomeAddress(id);
 		WorkAddress work = userdao.getWorkAddress(id);
 		
-		req.setAttribute("user", user);
-		req.setAttribute("home", home);
-		req.setAttribute("work", work);
+		session.setAttribute("user", user);
+		session.setAttribute("home", home);
+		session.setAttribute("work", work);
 		
 		
 		

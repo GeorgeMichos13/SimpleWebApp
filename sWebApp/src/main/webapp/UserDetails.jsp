@@ -17,13 +17,10 @@
 <h1>User Details</h1>
 
 			<%
-			String attr = request.getParameter("id");
-			    			int id = Integer.parseInt(attr);
-			    			UserDAO ud = new UserDAO();
-			    			User user = ud.getUserDetails(id);
-			    			
-			    			HomeAddress homeadd = ud.getHomeAddress(id);
-			    			WorkAddress workadd = ud.getWorkAddress(id);
+							
+			    			User user = (User)request.getAttribute("user");
+			    			HomeAddress homeadd =(HomeAddress)request.getAttribute("home");
+			    			WorkAddress workadd = (WorkAddress)request.getAttribute("work");
 			%>
     
    
@@ -31,6 +28,8 @@
 	
 	
 	<tr><th>User ID</th><th>Name</th><th>Surname</th><th>Birthday</th><th>Gender</th><th>Home Address</th><th>Work Address</th></tr>
+				
+				
 				
 				<tr><td><%=user.getId()%></td>
 					<td><%=user.getName()%></td>
@@ -40,7 +39,7 @@
 					<td><%=homeadd.getHomeAdd()%></td>
 					<td><%=workadd.getWorkAdd()%></td>
 				</tr>
-		
+				
 
 	</table>	
 			

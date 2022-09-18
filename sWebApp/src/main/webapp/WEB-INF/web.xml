@@ -9,6 +9,7 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <description></description>
     <display-name>DisplayUsersServlet</display-name>
@@ -20,6 +21,7 @@
     <servlet-name>DisplayUsersServlet</servlet-name>
     <url-pattern>/DisplayUsers</url-pattern>
   </servlet-mapping>
+ 
   <servlet>
     <description></description>
     <display-name>RegisterUserSerlvet</display-name>
@@ -28,6 +30,19 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RegisterUserSerlvet</servlet-name>
-    <url-pattern>/RegisterUserSerlvet</url-pattern>
+    <url-pattern>/RegisterUser</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>UserDetailsServlet</display-name>
+    <servlet-name>UserDetailsServlet</servlet-name>
+    <servlet-class>com.webapp.UserDetailsServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserDetailsServlet</servlet-name>
+    <url-pattern>/UserDetails</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

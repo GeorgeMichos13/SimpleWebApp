@@ -8,18 +8,19 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.mysql.cj.Query;
+import com.webapp.homeadd.HomeAddress;
 import com.webapp.user.User;
 
 public class UserDAO {
 	
 	public ArrayList<User> users = new ArrayList<>();
+	public ArrayList<HomeAddress> homeAdd = new ArrayList<>();
 	public String retrResult = "not";
 	
 	
 	public SessionFactory config()
 	{
-		Configuration con = new Configuration().configure().addAnnotatedClass(User.class);
+		Configuration con = new Configuration().configure().addAnnotatedClass(User.class).addAnnotatedClass(HomeAddress.class);
 		SessionFactory sf = con.buildSessionFactory();
 		
 		return sf;
@@ -41,7 +42,7 @@ public class UserDAO {
 		return users;
 	}
 	
-	public User getUser(int id) {
+	public User getUserDetails(int id) {
 		
 		Session session = this.config().openSession();
 		Transaction tx = session.beginTransaction();
@@ -49,7 +50,9 @@ public class UserDAO {
 		
 		users = new ArrayList<User>(session.createQuery("from User where id=:id",User.class).setParameter("id", id).getResultList());
 		
+		
 		User user = users.get(0);
+		
 		
 		tx.commit();
 		session.close();
@@ -59,6 +62,30 @@ public class UserDAO {
 	
 	
 	
+	public HomeAddress getHomeAddress(int id) {
+		
+		Session session = this.config().openSession();
+		Transaction tx = session.beginTransaction();
+		
+		homeAdd = new ArrayList<HomeAddress>(session.createQuery("from HomeAddress where iduserhome = : id",HomeAddress.class).setParameter("id", id).getResultList());
+		HomeAddress home =homeAdd.get(0);
+		
+		System.out.println(home.getHomeAdd());
+		if(home.getHomeAdd() == null)
+			home.setHomeAdd("N/A");
+		
+		
+		tx.commit();
+		session.close();
+		
+		return home;
+	}
+	
+	
+	
+	public ArrayList<HomeAddress> getHomeAddress(){
+		return homeAdd;
+	}
 	
 	public ArrayList<User> getUsers(){
 		return users;

@@ -3,6 +3,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@page import="com.webapp.user.User"%>
 <%@page import="com.webapp.UserDAO.*"%>
+<%@page import="com.webapp.homeadd.*"%>
 <%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -14,26 +15,27 @@
 <body>
 <h1>User Details</h1>
 
-			<% 
-				  
-    			String attr = request.getParameter("id");
-    			int id = Integer.parseInt(attr);
-    			UserDAO ud = new UserDAO();
-    			User user = ud.getUser(id);
-    					
-    		%>
+			<%
+			String attr = request.getParameter("id");
+			    			int id = Integer.parseInt(attr);
+			    			UserDAO ud = new UserDAO();
+			    			User user = ud.getUserDetails(id);
+			    			
+			    			HomeAddress homeadd = ud.getHomeAddress(id);
+			%>
     
    
 	<table style="text-align:center;">
 	
 	
-	<tr><th>User ID</th><th>Name</th><th>Surname</th><th>Birthday</th><th>Gender</th></tr>
+	<tr><th>User ID</th><th>Name</th><th>Surname</th><th>Birthday</th><th>Gender</th><th>Home Address</th></tr>
 				
 				<tr><td><%=user.getId()%></td>
 					<td><%=user.getName()%></td>
 					<td><%=user.getSurname()%></td>
 					<td><%=user.getDob()%></td>
 					<td><%=user.getGender()%></td>
+					<td><%=homeadd.getHomeAdd()%></td>
 				</tr>
 		
 

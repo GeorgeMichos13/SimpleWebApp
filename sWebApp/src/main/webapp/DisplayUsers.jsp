@@ -24,6 +24,7 @@
 				<c:set var="user_name" value="${u.name}" />
 				<c:set var="user_surname" value="${u.surname}" />
 				
+				
 				<li><p><a target ="_blank" href="UserDetails.jsp?id=<c:out value="${user_id}"/>">
 				<c:out value="${user_name}" /><c:out value=" ${user_surname}"/>
 				</a></p></li> 

@@ -27,6 +27,7 @@ public class DisplayUsersServlet extends HttpServlet {
 		
 		UserDAO userdao = new UserDAO();
 		
+		
 	
 		session.setAttribute("data", userdao.getUserData());
 		

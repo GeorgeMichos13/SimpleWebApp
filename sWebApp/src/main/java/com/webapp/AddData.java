@@ -30,7 +30,7 @@ public class AddData {
         
         user.setName("George");
         user.setSurname("Michos");
-        user.setDob("25/2/2022");
+        user.setDob("2022-02-25");
         user.setGender("M");
         home.setHomeAdd("abc");
         home.setUser(user);
@@ -45,7 +45,7 @@ public class AddData {
         work = new WorkAddress();
         user.setName("Themos");
         user.setSurname("Raptis");
-        user.setDob("17/12/1998");
+        user.setDob("1998-12-17");
         user.setGender("M");
         home.setHomeAdd(null);
         home.setUser(user);
@@ -60,7 +60,7 @@ public class AddData {
         work = new WorkAddress();
         user.setName("Pavlos");
         user.setSurname("Maniotis");
-        user.setDob("15/7/1994");
+        user.setDob("1994-4-4");
         user.setGender("M");
         home.setHomeAdd("cba");
         home.setUser(user);

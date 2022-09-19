@@ -14,10 +14,11 @@ import com.webapp.workadd.WorkAddress;
 
 public class UserDAO {
 	
-	public ArrayList<User> users = new ArrayList<>();
-	public ArrayList<HomeAddress> homeAdd = new ArrayList<>();
-	public ArrayList<WorkAddress> workAdd = new ArrayList<>();
-	public String result = "";
+	private ArrayList<User> users = new ArrayList<>();
+	private ArrayList<HomeAddress> homeAdd = new ArrayList<>();
+	private ArrayList<WorkAddress> workAdd = new ArrayList<>();
+	private String result = "";
+	
 	
 	
 	public SessionFactory config()
@@ -130,13 +131,24 @@ public WorkAddress getWorkAddress(int id) {
 		
 	}
 	
-	
-	public ArrayList<HomeAddress> getHomeAddress(){
-		return homeAdd;
+	public String registerUser(User user, WorkAddress work, HomeAddress home) {
+		
+		Session session = this.config().openSession();
+		Transaction tx = session.beginTransaction();
+		
+		session.save(user);
+		session.save(work);
+		session.save(home);
+		
+		
+		
+		tx.commit();
+		session.close();
+		
+		return result = "User has been added";
 	}
 	
-	public ArrayList<User> getUsers(){
-		return users;
-	}
+	
+	
 
 }

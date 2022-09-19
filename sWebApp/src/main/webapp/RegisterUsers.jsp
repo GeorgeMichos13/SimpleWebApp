@@ -3,22 +3,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>h1{text-align: center;}</style>
 <meta charset="ISO-8859-1">
 <title>Register</title>
 </head>
 <body>
 <h1>Register Form</h1>
 
-<form action="register" method="post">
+<input type="button" value="Back" onclick="history.back()"/> 
+<form action="<%= request.getContextPath() %>/register" method="POST">
 	
 			<table style="with: 50%">
 				<tr>
 					<td>Name</td>
-					<td><input type="text" name="name" required="required" /></td>
+					<td><input type="text" name="name" required="required" maxlength="30"/></td>
 				</tr>
 				<tr>
 					<td>Surname</td>
-					<td><input type="text" name="surname" required="required" /></td>
+					<td><input type="text" name="surname" required="required"  maxlength="30" /></td>
 				</tr>
 				<tr><td><label for="gender">Gender:</label></td>
 					<td><select name="gender" id="gender" required="required">
@@ -34,13 +36,14 @@
        			</tr>
        			<tr>
 					<td>Work Address</td>
-					<td><input type="text" name="workAddress" /></td>
+					<td><input type="text" name="workAddress" maxlength="30"/></td>
 				</tr>
 				<tr>
 					<td>Home Address</td>
-					<td><input type="text" name="homeAddress" /></td>
+					<td><input type="text" name="homeAddress" maxlength="30"/></td>
 				</tr></table>
-			<input type="submit" value="Submit" /></form>
-
+			<input type="submit" name="Sumbit"/></form>
+			
+		
 </body>
 </html>

@@ -9,6 +9,7 @@
 
 <!DOCTYPE html>
 <html>
+<style>h1{text-align: center;}</style>
 <head>
 <meta charset="ISO-8859-1">
 <title>User Details</title>

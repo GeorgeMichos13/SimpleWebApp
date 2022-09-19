@@ -8,6 +8,7 @@
 
 <!DOCTYPE html>
 <html>
+<style>h1{text-align: center;}</style>
 <head>
 <meta charset="ISO-8859-1">
 <title>Display</title>
@@ -15,6 +16,7 @@
 <body>
 	
 	<h1>Users</h1>
+	<button onclick="history.back()">Go Back</button>
 	<ul>
 			
 			

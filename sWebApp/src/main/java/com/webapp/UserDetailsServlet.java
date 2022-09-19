@@ -2,6 +2,8 @@ package com.webapp;
 
 import java.io.IOException;
 
+import org.apache.jasper.tagplugins.jstl.core.Out;
+
 import com.webapp.UserDAO.UserDAO;
 import com.webapp.homeadd.HomeAddress;
 import com.webapp.user.User;
@@ -25,18 +27,28 @@ public class UserDetailsServlet extends HttpServlet {
 		UserDAO userdao = new UserDAO();
 		
 		String attr = req.getParameter("id");
-		int id = Integer.parseInt(attr);
+		if(attr != null && !attr.isEmpty()) {
+			int id = Integer.parseInt(attr);
+			
+			User user = userdao.getUserDetails(id);
+			HomeAddress home = userdao.getHomeAddress(id);
+			WorkAddress work = userdao.getWorkAddress(id);
+			
+			session.setAttribute("user", user);
+			session.setAttribute("home", home);
+			session.setAttribute("work", work);
+			
+		}
 		
 		
-		User user = userdao.getUserDetails(id);
-		HomeAddress home = userdao.getHomeAddress(id);
-		WorkAddress work = userdao.getWorkAddress(id);
 		
-		session.setAttribute("user", user);
-		session.setAttribute("home", home);
-		session.setAttribute("work", work);
+		String idDelete = req.getParameter("idToDelete");
 		
-		
+		if(idDelete != null && !idDelete.isEmpty()) {
+			int idtd = Integer.parseInt(idDelete);
+			userdao.deleteUser(idtd);
+			
+		}
 		
 		
 		

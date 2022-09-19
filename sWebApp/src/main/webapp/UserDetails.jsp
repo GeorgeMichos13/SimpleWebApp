@@ -25,11 +25,8 @@
     
    
 	<table style="text-align:center;" style="border:1px solid black;">
-	
-	
+
 	<tr><th>User ID</th><th>Name</th><th>Surname</th><th>Birthday</th><th>Gender</th><th>Home Address</th><th>Work Address</th></tr>
-				
-				
 				
 				<tr><td><%=user.getId()%></td>
 					<td><%=user.getName()%></td>
@@ -38,13 +35,13 @@
 					<td><%=user.getGender()%></td>
 					<td><%=homeadd.getHomeAdd()%></td>
 					<td><%=workadd.getWorkAdd()%></td>
+					<td><a href="UserDetails?idToDelete=<%=user.getId()%>">
+					<button type="button"  class="delete" onclick="window.close();">Delete</button></a></td>
 				</tr>
-				
-
 	</table>	
 			
 			
-
+	
     
     
 </body>

@@ -13,12 +13,12 @@
 <title>Display</title>
 </head>
 <body>
-
-<h1>Users</h1>
-<ul>
+	
+	<h1>Users</h1>
+	<ul>
 			
 			
-			
+			 
 			<c:forEach items = "${data}"  var = "u">
 				<c:set var="user_id" value="${u.id}" />
 				<c:set var="user_name" value="${u.name}" />

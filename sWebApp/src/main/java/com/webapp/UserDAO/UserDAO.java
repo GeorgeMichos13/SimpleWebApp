@@ -17,7 +17,7 @@ public class UserDAO {
 	public ArrayList<User> users = new ArrayList<>();
 	public ArrayList<HomeAddress> homeAdd = new ArrayList<>();
 	public ArrayList<WorkAddress> workAdd = new ArrayList<>();
-	public String retrResult = "not";
+	public String result = "";
 	
 	
 	public SessionFactory config()
@@ -38,10 +38,11 @@ public class UserDAO {
 		
 		users = new ArrayList<User>(session.createQuery("from User",User.class).getResultList());
 		
+	
 		
 		tx.commit();
 		session.close();
-		retrResult = "Data sucefully retrivied";
+		
 		return users;
 	}
 	
@@ -101,6 +102,32 @@ public WorkAddress getWorkAddress(int id) {
 		session.close();
 		
 		return work;
+	}
+
+
+	public void deleteUser(int id) {
+		
+		Session session = this.config().openSession();
+		Transaction tx = session.beginTransaction();
+		
+		User user = new User();
+		WorkAddress work = new WorkAddress();
+		HomeAddress home = new HomeAddress();
+		
+		
+		user.setId(id);
+		work.setId(id);
+		home.setId(id);
+		
+		session.delete(user);
+		session.delete(home);
+		session.delete(work);
+		
+		tx.commit();
+		session.close();
+		
+		//return result="User deleted successfully";
+		
 	}
 	
 	
